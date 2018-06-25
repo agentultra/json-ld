@@ -20,6 +20,7 @@ category: Web
 description: Please see the README on GitHub at <https://github.com/agentultra/json-ld#readme>
 
 default-extensions:
+  - DeriveGeneric
   - NoImplicitPrelude
   - OverloadedStrings
 
