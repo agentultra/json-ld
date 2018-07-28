@@ -19,3 +19,8 @@ main = hspec $ do
     it "can create terms from Text" $ property $ do
       t <- arbitrary `suchThat` (\w -> (not $ w `elem` keywords) && w /= T.empty)
       return $ (mkTerm t) `shouldBe` Right (Term t)
+
+  describe "mkblankobject" $ do
+
+    it "cannot create BlankNode with an invalid key" $
+      (mkBlankObject "foobar" "baz") `shouldBe` Left "foobar is an invalid BlankNode id"

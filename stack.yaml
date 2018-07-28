@@ -39,7 +39,12 @@ packages:
 - .
 # Dependency packages to be pulled from upstream that are not in the resolver
 # (e.g., acme-missiles-0.3)
-# extra-deps: []
+extra-deps:
+  - bug-1.0.1
+  - ptr-0.16.5
+  - punycode-2.0
+  - text-builder-0.5.1.1
+  - iri-0.3.4
 
 # Override default flag values for local packages and extra-deps
 # flags: {}
