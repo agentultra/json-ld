@@ -29,6 +29,6 @@ mkBlankObject "" _ = Left "blankObjectId must start with \"_\""
 mkBlankObject id v =
   if validBlankId id
   then Right $ BlankObject id v
-  else Left $ id <> " is an invalid BlankNode id"
+  else Left $ id <> " is an invalid BlankObject id"
   where
     validBlankId x = T.head x == '_'

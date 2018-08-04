@@ -24,6 +24,6 @@ keywords =
 
 mkTerm :: Text -> Either Text Term
 mkTerm "" = Left "A term must contain at least one character"
-mkTerm word = if elem word keywords
+mkTerm word = if word `elem` keywords
               then Left $ word <> " is a JSON-LD keyword"
               else Right $ Term word

@@ -46,6 +46,8 @@ tests:
     dependencies:
       - json-ld
       - QuickCheck
+      - generic-random
       - hspec
       - quickcheck-instances
+      - quickcheck-text
       - text
