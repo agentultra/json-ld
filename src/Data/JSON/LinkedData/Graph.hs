@@ -18,6 +18,9 @@ data BlankObject =
   }
   deriving (Eq, Generic, Show)
 
+instance ToJSON BlankObject
+instance FromJSON BlankObject
+
 data ValueObject =
     JsValue Value
   | TypedValue Text

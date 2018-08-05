@@ -1,3 +1,4 @@
+import           Data.Aeson
 import           Data.JSON.LinkedData
 import qualified Data.Text as T
 import           Protolude
@@ -26,9 +27,14 @@ main = hspec $ do
       mkBlankObject "" "foobar" `shouldBe` Left "blankObjectId must start with \"_\""
 
     it "cannot create BlankObject with an invalid key" $ property $ \objId ->
-        mkBlankObject ("a" <> objId) "foobar"
-          `shouldBe` Left ("a" <> objId <> " is an invalid BlankObject id")
+      mkBlankObject ("a" <> objId) "foobar"
+      `shouldBe` Left ("a" <> objId <> " is an invalid BlankObject id")
 
     it "can create BlankObject with a valid key" $ property $ \objId ->
-        mkBlankObject ("_" <> objId) "foobar"
-          `shouldBe` (Right $ BlankObject ("_" <> objId) "foobar")
+      mkBlankObject ("_" <> objId) "foobar"
+      `shouldBe` (Right $ BlankObject ("_" <> objId) "foobar")
+
+    it "can be marshalled to JSON" $ property $ \objId objValue ->
+      let blankObject = BlankObject ("_" <> objId) objValue
+      in
+        (decode . encode) blankObject `shouldBe` Just blankObject

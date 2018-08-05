@@ -32,6 +32,8 @@ library:
   source-dirs: src
   dependencies:
     - aeson
+    - containers
+    - errors
     - iri
     - text
 
@@ -44,6 +46,7 @@ tests:
       - -rtsopts
       - -with-rtsopts=-N
     dependencies:
+      - aeson
       - json-ld
       - QuickCheck
       - generic-random
